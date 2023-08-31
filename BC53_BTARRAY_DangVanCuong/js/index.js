@@ -28,41 +28,42 @@ function xoaPhanTu() {
 }
 //BT1: Tổng các số dương trong mảng
 function tinhTongSoDuong() {
+    //B1: Input
     var tongS = 0;
+    //B2: Xử Lý
     for (var i = 0; i <= arrNumber.length; i++)
         if (arrNumber[i] > 0)
             tongS += arrNumber[i];
+    //B3: Output
     document.querySelector("#resultBT1").innerHTML = tongS;
 }
 //BT2: Đếm số dương trong mảng
 function demSoDuong() {
+     //B1: Input
     var soDuong = 0;
+    //B2: Xử Lý
     for (var i = 0; i <= arrNumber.length; i++)
         if (arrNumber[i] > 0)
             soDuong++
+     //B3: Output
     document.querySelector('#resultBT2').innerHTML = soDuong;
 }
 //BT3: Tìm số nhỏ nhất trong mảng
 function timMin() {
+    //B1: Input
     var min = arrNumber[0];
+    //B2: Xử Lý
     for (var i = 0; i <= arrNumber.length; i++)
         if (arrNumber[i] < min)
             min = arrNumber[i];
+    //B3: Output
     document.querySelector('#resultBT3').innerHTML = min;
 }
 //BT4: Tìm số dương nhỏ nhất trong mảng
-// function tim_so_duong_nho_nhat(arr) {
-//     var soDuongNhoNhat = Infinity;
-//     for (let i = 0; i < arr.length; i++) {
-//         if (arr[i] > 0 && arr[i] < soDuongNhoNhat) {
-//             soDuongNhoNhat = arr[i];
-//         }
-//     }
-//     return soDuongNhoNhat;
-// }
-
 function timSoDuongNhoNhat() {
+     //B1: Input
     var soDuongNhoNhat = Infinity;
+    //B2: Xử Lý
     for (var i = 0; i <= arrNumber.length; i++) {
         if (arrNumber[i] > 0 && arrNumber[i] < soDuongNhoNhat) {
             soDuongNhoNhat = arrNumber[i];
@@ -71,12 +72,15 @@ function timSoDuongNhoNhat() {
     if (soDuongNhoNhat == Infinity) {
         alert("Không có số dương trong mảng")
     }
+    //B3: Output
     document.querySelector('#resultBT4').innerHTML = soDuongNhoNhat;
     console.log('soDuongNhoNhat: ', soDuongNhoNhat);
 }
 //BT5: Tìm số chẵn cuối cùng trong mảng
 function timSoChanCuoiCung() {
+      //B1: Input
     var soChanCuoiCung = undefined;
+     //B2: Xử Lý
     for (var i = arrNumber.length - 1; i >= 0; i--) {
         if (arrNumber[i] % 2 === 0) {
             soChanCuoiCung = arrNumber[i];
@@ -87,6 +91,7 @@ function timSoChanCuoiCung() {
         alert('Không có số chẵn trong mảng')
         return -1;
     }
+    //B3: Output
     document.querySelector('#resultBT5').innerHTML = soChanCuoiCung;
 }
 
@@ -95,11 +100,14 @@ function swapValues(arr, number1, number2) {
     [arr[number1], arr[number2]] = [arr[number2], arr[number1]];
 }
 function hoanDoiViTri() {
+     //B1: Input
     var number1 = document.querySelector("#number1").value;
     console.log('number1: ', number1);
     var number2 = document.querySelector("#number2").value;
     console.log('number2: ', number2);
+     //B2: Xử Lý
     [arrNumber[number1], arrNumber[number2]] = [arrNumber[number2], arrNumber[number1]];
+     //B3: Output
     document.querySelector("#resultBT6").innerHTML = arrNumber;
 }
 
@@ -110,7 +118,9 @@ function sortArray(arr) {
     });
 }
 function sapXeptangDan() {
+     //B1: Input
     var newArray = sortArray(arrNumber);
+    //B3: Output
     document.querySelector("#resultBT7").innerHTML = newArray;
 }
 
@@ -134,10 +144,13 @@ function findFirstPrime(arr) {
   }
   
 function timSoNguyenToDauTien(){
+     //B1: Input
     var soNguyenTo = findFirstPrime(arrNumber);
+    //B2: Xử Lý
     if (soNguyenTo === -1){
         alert ("Không có số nguyên tố trong mảng")
     }
+    //B3: Output
     document.querySelector("#resultBT8").innerHTML = soNguyenTo;
 }
 
@@ -180,7 +193,9 @@ function timSoNguyen (arr){
     return demSoNguyen;
 }
 function demSoNguyen(){
+    //B1: Input
     var soNguyen = timSoNguyen(arrNumber2);
+    //B3: Output
     document.querySelector("#resultBT9").innerHTML = soNguyen;
     
 }
@@ -202,8 +217,10 @@ function timSoAmDuong (arr){
     
 }
 function soSanhAmDuong(){
+     //B1: Input
     var amDuong = timSoAmDuong(arrNumber);
     var content = '';
+     //B2: Xử Lý
     if (amDuong.positive > amDuong.negative){
         content = "Số Dương Lớn Hơn Số Âm"
     }else if (amDuong.positive < amDuong.negative){
@@ -211,34 +228,9 @@ function soSanhAmDuong(){
     }else{
         content = "Số Dương Bằng Số Âm"
     }
-
+ //B3: Output
     document.querySelector("#resultBT10").innerHTML = `${content} <br/> Số Âm Là: ${amDuong.negative} <br/>
     Số Dương Là: ${amDuong.positive}`;
 }
 
-// function upperCase(string) {
-//     myarr = string.split(" ");
-//     newstr = myarr.join('');
-//     newstr = string.charAt(0).toUpperCase() + string.slice(1);
-//    return  newstr;
-//   }
 
-//   function upperCase(string) {
-//     var firstLetter = string.charAt(0).toUpperCase() + string.slice(1);
-//   return firstLetter;
-//   }
-
-  
-
-//   function convertText(str) {
-//     const result = str.trim().split(" ");
-//     const newResult = result.map((item) => {
-//        return item.charAt(0).toUpperCase() + item.slice(1);
-//     });
-//     const joinResult = newResult.join("");
-//     console.debug("newResult:", joinResult);
-//     return joinResult;
-//  }
-//  var abc = "hello world"
-//   var content123 = convertText(abc);
-//   console.log('content123: ', content123);
